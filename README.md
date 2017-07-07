@@ -6,7 +6,7 @@ Prerequisite
 * Download Ext JS 6.5 and unzip it into any folder (that's the folder you specify in step 4)
 * Make sure that the Ext JS version in ```eds-starter65-simple-jpa/workspace.json``` matches the downloaded Ext JS version
 
-**Run the application your local machine**
+**Run the application on your local machine**
 
 1. Clone the repository
 2. ```cd eds-starter65-simple-jpa/client```
