@@ -20,5 +20,5 @@ Prerequisite
 **Build the application for production**
 1. ```./mvnw clean package```
 2. The file ```target/eds-starter65-simple-jpa-0.0.1.jar``` contains the whole application. Deploy it to an arbitrary server.
-3. Start the application with java -jar <any_folder>/eds-starter65-simple-jpa-0.0.1.jar
-4. The application listens by default to port 80
+3. Start the application with ```java -jar <any_folder>/eds-starter65-simple-jpa-0.0.1.jar```
+4. The application listens by default on port 80
