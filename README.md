@@ -1,5 +1,5 @@
-# eds-starter65-simple-jpa
-Starter application with Ext JS 6.5 Modern Toolkit and Spring Boot
+# Starter application with Ext JS 6.5 Modern Toolkit and Spring Boot
+
 
 Prerequisite
 * Install Sencha CMD: https://www.sencha.com/products/extjs/cmd-download/
