@@ -1,6 +1,7 @@
 Ext.define('Starter.Application', {
     extend: 'Ext.app.Application',
-        
+    requires: [ 'Ext.direct.*' ],
+    
     name: 'Starter',
 
 	stores: [ 'Companies', 'Departments' ],

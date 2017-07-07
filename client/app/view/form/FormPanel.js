@@ -1,6 +1,7 @@
 Ext.define('Starter.view.form.FormPanel', {
 	extend: 'Ext.form.Panel',
-
+	requires: ['Ext.data.validator.Date'],
+	
 	controller: {
 		xclass: 'Starter.view.form.FormController'
 	},
