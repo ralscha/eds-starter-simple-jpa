@@ -1,9 +1,10 @@
 {
     "name": "Starter",
+    "namespace": "Starter",
     "version": "1.0.0.0",
     "framework": "ext",
     "toolkit": "modern",
-    "theme": "theme-triton",
+    "theme": "theme-material",
 
     /**
      * The list of required packages (with optional versions; default is "latest").
@@ -49,7 +50,7 @@
      * Fashion build configuration properties.
      */
     "fashion": {
-
+        "missingParameters": "error",
         "inliner": {
             /**
              * Disable resource inliner. Production builds enable this by default.
