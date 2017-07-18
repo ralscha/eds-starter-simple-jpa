@@ -6,23 +6,13 @@ Ext.define('Starter.view.form.FormPanel', {
 		xclass: 'Starter.view.form.FormController'
 	},
 
-	bodyPadding: 10,
 	title: 'FORM_LOAD, FORM_POST and SIMPLE',
-
-	layout: {
-		type: 'vbox',
-		align: 'stretch'
-	},
 
 	api: {
 		load: 'formLoadService.getFormData',
 		submit: 'formSubmitService.handleFormSubmit'
 	},
 	paramsAsHash: true,
-
-	defaults: {
-		labelWidth: 137
-	},
 
 	items: [ {
 		xtype: 'textfield',
@@ -54,8 +44,9 @@ Ext.define('Starter.view.form.FormPanel', {
 		xtype: 'textareafield',
 		name: 'remarks',
 		label: 'Remarks',
-		flex: 1
-	} ],
+		clearable: true,
+		maxRows: 4
+	}  ],
 
 	buttons: [ {
 		xtype: 'button',

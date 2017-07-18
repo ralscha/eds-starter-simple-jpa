@@ -69,7 +69,7 @@ Ext.define('Starter.view.crud.UserGrid', {
 				disabled: '{!selectedUser}'
 			}
 		}, '->', {
-			emptyText: 'Name and Email Filter',
+			placeholder: 'Name and Email Filter',
 			xtype: 'textfield',
 			listeners: {
 				change: {
@@ -81,7 +81,7 @@ Ext.define('Starter.view.crud.UserGrid', {
 		}, {
 			xtype: 'combobox',
 			reference: 'departmentFilterCB',
-			emptyText: 'Departments Filter',
+			placeholder: 'Departments Filter',
 			store: 'Departments',
 			width: 200,
 			queryMode: 'local',
