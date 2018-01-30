@@ -40,7 +40,7 @@
 		<dependency>
 			<groupId>ch.ralscha</groupId>
 			<artifactId>extdirectspring</artifactId>
-			<version>1.7.3</version>
+			<version>1.7.4</version>
 		</dependency>
 
 		<dependency>
@@ -52,10 +52,14 @@
 	</dependencies>
 
 	<build>
+	    <finalName>eds-starter65-simple-jpa</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<executable>true</executable>
+				</configuration>				
 			</plugin>
 
 			<plugin>
