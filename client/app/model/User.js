@@ -13,7 +13,7 @@ Ext.define("Starter.model.User",
     validators : [ {
       type : "email"
     } ]
-  }, "department", "id" ],
+  }, "departmentId", "id" ],
   proxy : {
     type : "direct",
     api : {

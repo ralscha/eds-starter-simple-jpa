@@ -8,6 +8,6 @@ import ch.rasc.eds.starter.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-	List<User> findByDepartmentOrderByLastNameAsc(String department);
+	List<User> findByDepartmentNameOrderByLastNameAsc(String departmentName);
 
 }

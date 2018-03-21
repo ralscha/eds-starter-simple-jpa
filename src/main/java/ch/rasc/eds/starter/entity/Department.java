@@ -10,8 +10,6 @@ import ch.rasc.extclassgenerator.Model;
 @Entity
 public class Department extends AbstractPersistable<Long> {
 
-	private static final long serialVersionUID = 1L;
-
 	private String name;
 
 	public String getName() {

@@ -1,10 +1,14 @@
 package ch.rasc.eds.starter.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Email;
 import org.springframework.data.jpa.domain.AbstractPersistable;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import ch.rasc.extclassgenerator.Model;
 
@@ -15,8 +19,6 @@ import ch.rasc.extclassgenerator.Model;
 @Entity
 public class User extends AbstractPersistable<Long> {
 
-	private static final long serialVersionUID = 1L;
-
 	private String firstName;
 
 	@NotNull
@@ -25,7 +27,12 @@ public class User extends AbstractPersistable<Long> {
 	@Email
 	private String email;
 
-	private String department;
+	@ManyToOne
+	@JsonIgnore
+	private Department department;
+
+	@Transient
+	private long departmentId;
 
 	public String getFirstName() {
 		return this.firstName;
@@ -51,19 +58,20 @@ public class User extends AbstractPersistable<Long> {
 		this.email = email;
 	}
 
-	public String getDepartment() {
+	public Department getDepartment() {
 		return this.department;
 	}
 
-	public void setDepartment(String department) {
+	public void setDepartment(Department department) {
 		this.department = department;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + getId() + ", firstName=" + this.firstName + ", lastName="
-				+ this.lastName + ", email=" + this.email + ", department="
-				+ this.department + "]";
+	public long getDepartmentId() {
+		return this.departmentId;
+	}
+
+	public void setDepartmentId(long departmentId) {
+		this.departmentId = departmentId;
 	}
 
 }

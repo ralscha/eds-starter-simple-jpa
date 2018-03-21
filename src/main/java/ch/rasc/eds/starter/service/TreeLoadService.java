@@ -44,7 +44,7 @@ public class TreeLoadService {
 			return Collections.singletonList(root);
 		}
 
-		return this.userRepository.findByDepartmentOrderByLastNameAsc(node).stream()
+		return this.userRepository.findByDepartmentNameOrderByLastNameAsc(node).stream()
 				.map(u -> {
 					return new Node(u.getId().toString(),
 							u.getLastName() + " " + u.getFirstName(), true, false, null);

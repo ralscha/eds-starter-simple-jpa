@@ -43,7 +43,8 @@ Ext.define('Starter.view.crud.UserController', {
 		if (!Ext.isEmpty(value)) {
 			userStore.addFilter({
 				id: 'departmentFilter',
-				property: 'department',
+				property: 'departmentId',
+				exactMatch: true,
 				value
 			});
 		}
@@ -52,6 +53,13 @@ Ext.define('Starter.view.crud.UserController', {
 		}
 	},
 
+	departmentRenderer(value) {
+		if (value) {
+			return Ext.getStore('Departments').getById(value).get('name');
+		}
+		return value;
+	},
+		
 	deleteUser() {
 		Ext.Msg.confirm('Really delete?', 'Are you sure?', this.onDeleteUserConfirm, this);
 	},
