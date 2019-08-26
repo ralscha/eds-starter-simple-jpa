@@ -1,7 +1,5 @@
 # Starter application with Ext JS 6.5 Modern Toolkit and Spring Boot
 
-**Online Demo**: https://demo.rasc.ch/eds-starter6-simple/
-
 **Run the application on your local machine**
 
 Prerequisite
