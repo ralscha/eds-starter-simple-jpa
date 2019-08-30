@@ -1,9 +1,5 @@
 package ch.rasc.eds.starter.bean;
 
-import java.time.OffsetDateTime;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 public class FormBean {
 
 	private String osName;
@@ -14,8 +10,7 @@ public class FormBean {
 
 	private String remarks;
 
-	@DateTimeFormat(pattern = "EEE MMM dd yyyy HH:mm:ss 'GMT'Z (zzzz)")
-	private OffsetDateTime date;
+	private long date;
 
 	public String getOsName() {
 		return this.osName;
@@ -49,11 +44,11 @@ public class FormBean {
 		this.remarks = remarks;
 	}
 
-	public OffsetDateTime getDate() {
+	public long getDate() {
 		return this.date;
 	}
 
-	public void setDate(OffsetDateTime date) {
+	public void setDate(long date) {
 		this.date = date;
 	}
 
