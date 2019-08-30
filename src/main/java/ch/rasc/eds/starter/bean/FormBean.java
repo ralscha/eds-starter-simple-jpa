@@ -3,7 +3,6 @@ package ch.rasc.eds.starter.bean;
 import java.time.OffsetDateTime;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 public class FormBean {
 
@@ -15,7 +14,7 @@ public class FormBean {
 
 	private String remarks;
 
-	@DateTimeFormat(iso = ISO.DATE_TIME)
+	@DateTimeFormat(pattern = "EEE MMM dd yyyy HH:mm:ss 'GMT'Z (zzzz)")
 	private OffsetDateTime date;
 
 	public String getOsName() {

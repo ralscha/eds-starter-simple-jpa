@@ -41,7 +41,7 @@ class DevelopmentConfig {
 		String extDirectConfig = ExtDirectSpringUtil
 				.generateApiString(event.getApplicationContext());
 		String userDir = System.getProperty("user.dir");
-		Files.write(Paths.get(userDir, "client", "api.js"),
+		Files.write(Paths.get(userDir, "clientopen", "api.js"),
 				extDirectConfig.getBytes(StandardCharsets.UTF_8));
 	}
 

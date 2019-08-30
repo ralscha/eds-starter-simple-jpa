@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import ch.ralscha.extdirectspring.annotation.ExtDirectMethod;
-import ch.ralscha.extdirectspring.bean.ExtDirectStoreResult;
+import ch.rasc.eds.starter.entity.Department;
 import ch.rasc.eds.starter.entity.User;
 import ch.rasc.eds.starter.repository.DepartmentRepository;
 import ch.rasc.eds.starter.repository.UserRepository;
@@ -29,27 +29,35 @@ public class UserService {
 
 	@ExtDirectMethod(STORE_READ)
 	public List<User> read() {
-		return this.userRepository.findAll().stream()
-				.peek(u -> u.setDepartmentId(u.getDepartment().getId()))
-				.collect(Collectors.toList());
+		return this.userRepository.findAll().stream().peek(u -> {
+			if (u.getDepartment() != null) {
+				u.setDepartmentId(u.getDepartment().getId());
+			}
+		}).collect(Collectors.toList());
 	}
 
 	@ExtDirectMethod(STORE_MODIFY)
-	public ExtDirectStoreResult<User> create(User newUser) {
+	public User create(User newUser) {
 		if (newUser.getDepartmentId() > 0) {
 			newUser.setDepartment(
 					this.departmentRepository.getOne(newUser.getDepartmentId()));
 		}
-		User insertedUser = this.userRepository.save(newUser);
-		return new ExtDirectStoreResult<>(insertedUser);
+		return this.userRepository.save(newUser);
 	}
 
 	@ExtDirectMethod(STORE_MODIFY)
-	public ExtDirectStoreResult<User> update(User changedUser) {
-		changedUser.setDepartment(
-				this.departmentRepository.getOne(changedUser.getDepartmentId()));
-		User updatedUser = this.userRepository.save(changedUser);
-		return new ExtDirectStoreResult<>(updatedUser);
+	public User update(User changedUser) {
+		Department department = this.departmentRepository
+				.findById(changedUser.getDepartmentId()).orElse(null);
+
+		changedUser.setDepartment(department);
+		User savedUser = this.userRepository.save(changedUser);
+
+		if (department != null) {
+			savedUser.setDepartmentId(department.getId());
+		}
+
+		return savedUser;
 	}
 
 	@ExtDirectMethod(STORE_MODIFY)
