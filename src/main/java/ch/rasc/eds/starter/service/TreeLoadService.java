@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -36,7 +35,7 @@ public class TreeLoadService {
 		if ("root".equals(node) || !StringUtils.hasText(node)) {
 
 			List<Node> children = this.departmentRepository
-					.findAll(new Sort(Direction.ASC, "name")).stream()
+					.findAll(Sort.by("name").ascending()).stream()
 					.map(d -> new Node(d.getName(), d.getName(), false, false, null))
 					.collect(Collectors.toList());
 			Node root = new Node("Company", "Company", false, true, children);
